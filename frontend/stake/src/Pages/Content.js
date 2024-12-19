@@ -1,38 +1,72 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Content.css'
 import Details from '../Components/Details'
 import ChartCard from '../Components/ChartCard'
 import { Button, Dropdown, Space } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { type } from '@testing-library/user-event/dist/type'
+import axios from 'axios'
+import Loader from '../Components/Loader'
 
 const Content = ({title}) => {
+
+    const [users , setUsers] = useState([])
+    const [loading , setLoading] = useState(true)
+    const [transactions , setTransactions] = useState()
+
+    useEffect(() => {
+      const getTransactions = async () => {
+        try {
+          const response = await axios.get("http://localhost:5001/api/transactions", {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          console.log(response.data.transactions);
+          setTransactions(await response.data.transactions);
+          setLoading(false)
+        } catch (error) {
+          if (error.response) {
+            // Server responded with a status other than 2xx
+            console.log("Server Error: ", error.response.data);
+          } else if (error.request) {
+            // Request was made, but no response received
+            console.log("No response received: ", error.request);
+          } else {
+            // Other errors
+            console.log("Error message: ", error.message);
+          }
+        }
+      }
+      getTransactions();
+    }, [loading]);
+
     const details = [
       {
-        src:"https://s3-alpha-sig.figma.com/img/9826/5f99/9350454296b0020d37a9e1ae69f8af67?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=F0Oc8vt9P-DgxHV8lQJk0C7AvnB-6OKymoAPuHTKwu7V7QI-9kIbYlEJhwzZeorra83alQ09tUh6M-qw46X~H7FIQUmtpcWhr~nNfVh84E8W~RQwqdqVM~SDBfDZObHj8vztjCrI2ssLHhxTuEVQU8Xum1UO~8qR7T-w5IO3fqJmTDOAYoyRHBkGK2Ih0jjMc4GgraT7qI5jWsFWpdIYGN9~8r~vvmhZHRzGQOSUOegq87eYayWoYcSHUlOH8Algh537MBozseqeGOwie5Dze32AJmCyzfzaxfP6uReukSSjHgyYCM5K6E~1CF9~liuGrHd5uOaCZ4QcK9nwip5R8A__",
+        src:"Assets/eth.png",
         title: "Total Staked Amount",
-        value: "$ 612,869",
+        value: `$ ${transactions && transactions.user_total_stake.toLocaleString('en-US')}`,
         percent:16,
         color:"#50AB19"
       },
       {
         src:"Assets/users.png",
         title: "Total Users",
-        value: "876,543",
+        value: transactions && transactions.users_count,
         percent:16,
         color:"#1988AB"
       },
       {
         src:"Assets/vector.png",
         title: "Total Transactions",
-        value: "$ 1,912,345",
+        value: `$ ${transactions && transactions.total_staked_amount.toLocaleString('en-US')}`,
         percent:0.7,
         color:"#7C19AB"
       },
       {
-        src:"https://s3-alpha-sig.figma.com/img/9897/cc27/210cc67992a3325360ffc35aaa650b3e?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fsg04eo-CPvW7bENCt5yduGJGUDxeQXLSx7L0rrg7zPKw4EP-lT8RMtW4K~VWsAUvRV4~p8Flo3oA6cVA4XJVcgwUC9c8somOLAd3AeRzoZajPuIn~W5IFJAGKj1-Uj2VzhmTkUwY4I1SISa3FUgjySuYcn5uDeRPPOqf0RCWaMOoBu-IsjqyMBzKp~t6jBXgKn8FNsmuZhfPAMwb6SlBqvfpUB2Zc6o63d5zcINDCsYdfDrLw4ILO3WpOaxQV7zJxI9V9zhmdK1DiS698-Y4IwXeUa7K~hMz874l1uRkQr35yluvZanekgTly1aKGyba6KcpVKfKf35a6baXYCJRw__",
+        src:"Assets/scope.png",
         title: "LIVE Staked Amount",
-        value: "$ 12,345",
+        value: `$ ${transactions && transactions.active_staked_amount.toLocaleString('en-US')}`,
         percent:2,
         color:"#A8AB19"
       }
@@ -110,7 +144,7 @@ const Content = ({title}) => {
                       />
                   </svg>
                 </div>
-                <img src='https://s3-alpha-sig.figma.com/img/f87a/8574/733200303be2c5cf325e1c29514e36b0?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mlZG1aZS-2DuuDo-pDKINKbgXht81nZOXMJIrzBa5wGAP7R9vrRSX1Eif1n5VHXuvG4ca4mwsi5QR3leNyUrG6z5pTo5fo8224G~ff1a6MYrJRW356dmsHtTDzQtf~npzW8p4wQgk1EyBdOaxFq2DhehdWVn8PmF7PO5NjYK7pXKs7LLwaZiC22CnmclilrUlUdV9WmR-S9AUimQKzu8doGyO7SG5HaEI1v9mWuJJormEloQWb5voBhTRzsHy9RG2u2QFVmAndRNEB8cHG3Ytu05JUYaVvFE42WbGZsFHiYqckZDCgJ-38Lfykp0eGeAvPrl~zTsc1~4Y0gWpzsfwA__' alt='profile' className='profile' />
+                <img src='Assets/p.png' alt='profile' className='profile' />
                 <div className='notif-cont'>
                 <img src='Assets/mdi_bell.png' alt='notification' />
                 <p>
@@ -152,7 +186,10 @@ const Content = ({title}) => {
         {/* info section */}
         <div className='info'>
             {
-                details.map((info , i) => <Details key={i} index={i} info={info} /> )
+              loading ?
+                <Loader />
+              :
+              details.map((info , i) => <Details key={i} index={i} info={info} /> )
             }
         </div>
         {/* Charts section */}

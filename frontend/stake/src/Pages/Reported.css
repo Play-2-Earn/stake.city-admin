@@ -1,0 +1,15 @@
+.ant-image-mask{
+    height: 100%;
+}
+.ant-table-cell{
+    padding: 5px 15px 5px 5px !important;
+    max-width: 750px !important;
+}
+.ant-table-cell >.mid  {
+    min-width: 60px !important;
+}
+
+
+.ant-table-cell >.mid >p {
+    width: 100% !important;
+}

@@ -10,6 +10,7 @@
     align-items: flex-start;
     position: relative;
     max-height: 115px;
+    min-width: 280px;
 }
 
 .contDetail > .detail {

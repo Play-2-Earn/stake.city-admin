@@ -61,7 +61,7 @@ const SideBar = () => {
           </svg>
           <p>Task Status</p>
         </Link>
-        <div className='menu-button'>
+        <Link to='/reported' style={{textDecoration:'none'}} className='menu-button'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id='users'>
           <g>
             <g>
@@ -71,8 +71,8 @@ const SideBar = () => {
           </g>
         </svg>
           <p>Reported</p>
-        </div>
-        <div className='menu-button'>
+        </Link>
+        <Link to='/logactivity' style={{textDecoration:'none'}} className='menu-button'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id='users'>
           <g>
             <g>
@@ -82,7 +82,7 @@ const SideBar = () => {
           </g>
         </svg>
           <p>Log Activity</p>
-        </div>
+        </Link>
 
        <div className='separation'>
        </div>

@@ -1,0 +1,51 @@
+.buttonn{
+    height:100%;
+    width: 250px;
+    min-width: 250px;   
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.buttonn:hover{
+    background-color: white;
+}
+
+.buttonn > .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55%;
+    margin-bottom: auto;
+    width: 100%;
+    gap: 15px ;
+    margin-top: 4px;
+}
+.content > .icon-cont{
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .icon-cont > img {
+    height: 18px;
+    width:18px;
+}
+.content > p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 29.92px;
+    text-align: left;
+    color: #00000080;
+    white-space: nowrap;      /* Prevents the text from wrapping */
+    overflow: hidden;         /* Hides the overflowed text */
+    text-overflow: ellipsis;  /* Shows '...' at the end of the text */
+    max-width: 100%;          /* Adjust based on the desired container size */
+    }
