@@ -1,0 +1,88 @@
+.bodyy > .tablesection{
+    width:100%;
+    flex: 12;
+    max-height: 469px;
+    margin-top: 42px;
+    min-width: 1220px;
+    position: relative;
+    z-index: 5 ;
+}
+
+.bodyy > .tablesection > .navbuttons{
+width: auto;
+max-width: 100%;
+background: #1E1E1E4D;
+position: absolute;
+height: 75px;
+top: -42px;
+z-index: -1 !important;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+gap: 0;
+overflow: hidden;
+overflow-x: scroll;
+scroll-behavior: smooth;
+}
+
+.bodyy > .tablesection > .tablee {
+    width:100%;
+    background-color: white;
+    height: 100%;
+    border: none ;
+    border-radius:20px;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+     /* Hide the scrollbar */
+     scrollbar-width: none; /* For Firefox */
+     -ms-overflow-style: none; /* For Internet Explorer */
+}
+
+.bodyy > .tablesection > .tablee::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+.ant-table-cell{
+    padding: 5px 15px 5px 5px !important;
+    max-width: 750px !important;
+}
+.ant-table-cell >.mid  {
+    min-width: 60px !important;
+}
+
+
+.ant-table-cell >.mid >p {
+    width: 100% !important;
+}
+
+.expand > .icon-cont{
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expand > .icon-cont > img {
+    height: 18px;
+    width:18px;
+}
+
+.expand > p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 29.92px;
+    text-align: left;
+    color: #00000080;
+    white-space: nowrap;      /* Prevents the text from wrapping */
+    overflow: hidden;         /* Hides the overflowed text */
+    text-overflow: ellipsis;  /* Shows '...' at the end of the text */
+    max-width: 100%;          /* Adjust based on the desired container size */
+    }
+

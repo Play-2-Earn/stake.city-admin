@@ -1,0 +1,111 @@
+.pannel{
+    background-color: white;
+    flex: 1;
+    height: 100%;
+    width: 230px;
+    min-width: 230px !important;
+    border: none ;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.head{
+    margin-bottom: 7px;
+    width: 100%;
+    height: auto;
+}
+
+.head > p {
+    font-size: 45px;
+    font-weight: 300;
+    text-align:start ;
+    margin: 20px 0 0 0;
+}
+
+.menu1{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.menu1 > p {
+    font-size: 18px;
+    color: #00000040;
+    font-weight: 400;
+    text-align:start ;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.menu-button{
+    width: 80%;
+    height: 48px;
+    margin: auto;
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+.menu-button:hover{
+    background: #0094FF1A;
+    border-left: 4px solid #0094FF;
+    cursor: pointer;
+}
+.menu-button > svg {
+    fill: #000000B2 ;
+    height: 20px;
+    object-fit: contain;
+    transition: background-color 0.3s ease;
+    margin-left: 6px;
+}
+
+.menu-button:hover > p , .menu-button:hover > svg{
+    color:#0094FF;
+    fill: #0094FF;
+}
+.menu-button > p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29.92px;
+    color:#000000B2;
+
+    text-align: left;
+    white-space: nowrap;      /* Prevents the text from wrapping */
+    overflow: hidden;         /* Hides the overflowed text */
+    text-overflow: ellipsis;  /* Shows '...' at the end of the text */
+    max-width: 100%;          /* Adjust based on the desired container size */
+}
+
+.separation{
+    width: 90%;
+    margin: auto;
+    margin-left: 0;
+    margin-top: 4%;
+    height: 1px;
+    background-color: #eeeded;
+}
+
+.menu-icon .stroke-path {
+    stroke: black; /* Initial stroke color */
+    stroke-width: 2px; /* Stroke thickness */
+    stroke-opacity: 0.7; /* Stroke transparency */
+    transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+/* On hover */
+
+.menu-button:hover > .menu-icon .stroke-path {
+    stroke: #0094FF; /* Change stroke color to blue */
+
+    stroke-opacity: 1; /* Make it fully opaque */
+}
+
